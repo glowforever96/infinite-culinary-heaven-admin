@@ -31,5 +31,5 @@ export const buttonWrapper = style({
   gap: 6,
   alignItems: "center",
   fontSize: "0.75rem",
-  color: vars.colors.textColor.secondary,
+  color: vars.colors.textColor[800],
 });

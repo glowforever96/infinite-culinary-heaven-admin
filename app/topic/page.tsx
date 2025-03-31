@@ -15,8 +15,9 @@ export default async function TopicPage() {
   return (
     <div className={styles.topicPageWrapper}>
       <Suspense fallback={<div>loading...</div>}>
-        <div>
-          현재 <span>{topicLength}</span>개의 재료가 등록 되어있어요.
+        <div className={styles.topicLength}>
+          현재 <span className={styles.span}>{topicLength}</span>개의 재료가
+          등록 되어 있어요.
         </div>
         <Topic />
       </Suspense>

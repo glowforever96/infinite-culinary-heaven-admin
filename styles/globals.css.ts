@@ -26,10 +26,19 @@ export const vars = createGlobalTheme(":root", {
       white: "#fff",
     },
     textColor: {
-      secondary: "#333",
+      900: "#111827",
+      800: "#1f2937",
+      700: "#374151",
+      600: "#4b5563",
+      500: "#6b7280",
     },
     grey: {
       200: "#E5E7EB",
+    },
+    green: {
+      200: "#bbf7d0",
+      400: "#4ade80",
+      600: "#22c55e",
     },
   },
 });
