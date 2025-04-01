@@ -6,6 +6,7 @@ export const topicPageWrapper = style({
   flexDirection: "column",
   gap: 4,
   padding: 24,
+  position: "relative",
 });
 
 export const topicLength = style({
@@ -19,4 +20,10 @@ export const topicLength = style({
 export const span = style({
   color: vars.colors.green[600],
   margin: "0 4px",
+});
+
+export const divider = style({
+  width: "100%",
+  border: `1px solid ${vars.colors.grey[200]}`,
+  margin: "6px 0",
 });
