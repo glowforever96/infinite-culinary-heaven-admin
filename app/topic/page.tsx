@@ -1,7 +1,7 @@
 import Topic from "@/components/topic/topic";
 import { Suspense } from "react";
 import * as styles from "./page.css";
-import RegisterTopic from "@/components/topic/register-topic";
+import Button from "@/components/button";
 
 async function getTopicLength() {
   const res = await fetch(`${process.env.API_URL}/topic-ingredients`);
@@ -21,7 +21,7 @@ export default async function TopicPage() {
         </div>
         <Topic />
       </Suspense>
-      <RegisterTopic />
+      <Button buttonText="재료 등록" type="TOPIC" />
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function Topic() {
           ))}
         </Fragment>
       ))}
-      <div ref={ref} style={{ height: 50 }} />
+      <div ref={ref} style={{ height: 10 }} />
     </div>
   );
 }

@@ -25,7 +25,10 @@ export default function RootLayout({
       <body className={pretendard.className}>
         <main>
           <Providers>
-            <Layout>{children}</Layout>
+            <Layout>
+              {children}
+              <div id="modal-root" />
+            </Layout>
           </Providers>
         </main>
       </body>

@@ -3,11 +3,12 @@ import { style } from "@vanilla-extract/css";
 
 export const topicWrapper = style({
   overflowY: "scroll",
-  maxHeight: "50dvh",
+  maxHeight: "75dvh",
   display: "grid",
   width: "100%",
   gridTemplateColumns: "repeat(2, 1fr)",
   gap: 12,
+  paddingBottom: 84,
 });
 
 export const topicItem = style({
