@@ -3,21 +3,12 @@ import { Suspense } from "react";
 import * as styles from "./page.css";
 import Button from "@/components/button";
 
-async function getTopicLength() {
-  const res = await fetch(`${process.env.API_URL}/topic-ingredients`);
-  const data = await res.json();
-  return data.topicIngredients.length;
-}
-
-export default async function TopicPage() {
-  const topicLength = await getTopicLength();
-
+export default function TopicPage() {
   return (
     <div className={styles.topicPageWrapper}>
       <Suspense fallback={<div>loading...</div>}>
         <div className={styles.topicLength}>
-          현재 <span className={styles.span}>{topicLength}</span>개의 재료가
-          등록 되어 있어요.
+          현재 등록 완료 된 재료들이에요.
         </div>
         <Topic />
       </Suspense>
