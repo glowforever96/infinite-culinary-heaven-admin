@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
 import Modal from "../modal";
 import RegisterTopic from "../topic/register-topic";
 import * as styles from "./button.css";
+import useModalState from "@/store/useModalState";
 
 interface ButtonProps {
   buttonText: string;
@@ -10,15 +10,15 @@ interface ButtonProps {
 }
 
 export default function Button({ buttonText, type }: ButtonProps) {
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const { isOpen, open, close } = useModalState();
 
   return (
     <>
-      <button onClick={() => setIsOpenModal(true)} className={styles.button}>
+      <button onClick={open} className={styles.button}>
         {buttonText}
       </button>
-      {isOpenModal && (
-        <Modal onClose={() => setIsOpenModal(false)}>
+      {isOpen && (
+        <Modal onClose={close}>
           {type === "TOPIC" ? <RegisterTopic /> : null}
         </Modal>
       )}
