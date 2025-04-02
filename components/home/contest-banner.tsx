@@ -1,12 +1,11 @@
 import Link from "next/link";
 import * as styles from "./banner.css";
-import type { Contest } from "@/models/contest";
 import { ongoingContest } from "@/lib/ongoingContest";
 
 async function getContestLength() {
   const res = await fetch(`${process.env.API_URL}/contests`);
-  const data: Contest = await res.json();
-  const ableContest = ongoingContest(data);
+  const data = await res.json();
+  const ableContest = ongoingContest(data.contests);
   return ableContest.length;
 }
 
