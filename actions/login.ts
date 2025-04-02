@@ -21,8 +21,12 @@ export default async function loginAction(_: any, formData: FormData) {
       prevId: id,
     };
   }
-  const { accessToken } = await res.json();
+  const { accessToken, refreshToken } = await res.json();
   (await cookies()).set("accessToken", accessToken, {
+    httpOnly: true,
+    path: "/",
+  });
+  (await cookies()).set("refreshToken", refreshToken, {
     httpOnly: true,
     path: "/",
   });

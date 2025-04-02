@@ -1,25 +1,7 @@
-export const postTopic = async (name: string, base64Image: string) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/topic-ingredients`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        image: base64Image,
-        request: {
-          name,
-          image: base64Image,
-        },
-      }),
-      credentials: "include",
-    }
-  );
+import { fetchWithAuth } from "@/actions/auth";
 
-  if (!response.ok) {
-    throw new Error("업로드 실패");
-  }
-  console.log(response.headers);
-  return response.json();
+export const postTopic = async (formData: FormData) => {
+  return fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/topic-ingredients`, {
+    body: formData,
+  });
 };

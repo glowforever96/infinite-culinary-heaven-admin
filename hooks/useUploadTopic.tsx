@@ -1,23 +1,32 @@
 import { postTopic } from "@/lib/postTopic";
+import useModalState from "@/store/useModalState";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const useUploadTopic = () => {
   const queryClient = useQueryClient();
+  const { close } = useModalState();
 
   return useMutation({
     mutationFn: async ({ name, file }: { name: string; file: File }) => {
-      const reader = new FileReader();
-      const base64Image = await new Promise<string>((resolve, reject) => {
-        reader.onload = (e) => resolve(e.target?.result as string);
-        reader.onerror = () => reject("이미지 변환 실패");
-        reader.readAsDataURL(file);
-      });
-
-      return postTopic(name, base64Image);
+      const formData = new FormData();
+      formData.append("image", file);
+      formData.append(
+        "request",
+        JSON.stringify({
+          name,
+          image: file.name,
+        })
+      );
+      const res = await postTopic(formData);
+      return res;
     },
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["topic"] });
       console.log("ok");
+      close();
+    },
+    onError: (err) => {
+      console.log("err", err);
     },
   });
 };
