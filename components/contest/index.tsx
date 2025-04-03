@@ -2,7 +2,7 @@
 import { Fragment } from "react";
 import * as styles from "./contest.css";
 import { useInfiniteContests } from "@/hooks/useInfiniteContests";
-import Image from "next/image";
+import ContestCard from "./contest-card";
 
 export default function Contest() {
   const { data, ref } = useInfiniteContests();
@@ -11,17 +11,8 @@ export default function Contest() {
     <div className={styles.contestWrapper}>
       {data?.pages.map((page, i) => (
         <Fragment key={i}>
-          {page.map(({ title, topicIngredient }) => (
-            <div key={title} style={{ height: 200, backgroundColor: "red" }}>
-              <div>{title}</div>
-
-              <Image
-                src={topicIngredient.image}
-                width={200}
-                height={200}
-                alt="재료 이미지"
-              />
-            </div>
+          {page.map((contest) => (
+            <ContestCard key={contest.id} contestData={contest} />
           ))}
         </Fragment>
       ))}

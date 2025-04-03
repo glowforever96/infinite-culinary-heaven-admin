@@ -8,4 +8,11 @@ export const contestWrapper = style({
   gridTemplateColumns: "repeat(2, 1fr)",
   gap: 12,
   paddingBottom: 84,
+  "@media": {
+    "screen and (max-width: 768px)": {
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+    },
+  },
 });

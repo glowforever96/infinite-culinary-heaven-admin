@@ -5,7 +5,7 @@ export const contestPageWrapper = style({
   display: "flex",
   flexDirection: "column",
   gap: 4,
-  padding: 24,
+  padding: "24px 12px",
   position: "relative",
 });
 
