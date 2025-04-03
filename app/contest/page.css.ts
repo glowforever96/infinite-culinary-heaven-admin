@@ -16,3 +16,9 @@ export const divText = style({
   width: "100%",
   marginBottom: 8,
 });
+
+export const divider = style({
+  width: "100%",
+  margin: "12px 0",
+  border: `1px solid ${vars.colors.grey[200]}`,
+});

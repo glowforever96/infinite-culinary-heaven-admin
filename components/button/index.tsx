@@ -1,4 +1,5 @@
 "use client";
+import ContestForm from "../form/contest-form";
 import Modal from "../modal";
 import RegisterTopic from "../topic/register-topic";
 import * as styles from "./button.css";
@@ -19,7 +20,7 @@ export default function Button({ buttonText, type }: ButtonProps) {
       </button>
       {isOpen && (
         <Modal onClose={close}>
-          {type === "TOPIC" ? <RegisterTopic /> : null}
+          {type === "TOPIC" ? <RegisterTopic /> : <ContestForm />}
         </Modal>
       )}
     </>
