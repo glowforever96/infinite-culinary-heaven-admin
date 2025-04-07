@@ -4,8 +4,13 @@ import * as styles from "./step1.css";
 import useContestState from "@/store/useContestState";
 import SelectTopic from "./select-topic";
 import Input from "@/components/input";
+import ErrorText from "@/components/ui/error";
 
-export default function Step1() {
+export default function Step1({
+  errorState,
+}: {
+  errorState: { step: number; message: string } | null;
+}) {
   const { searchInput, onChangeInput, displayedTopics, selectedTopic } =
     useContestForm();
 
@@ -56,6 +61,9 @@ export default function Step1() {
           <div className={styles.notFoundSearch}>검색 결과가 없습니다😥</div>
         )}
       </div>
+      {errorState && !selectedTopic && (
+        <ErrorText>{errorState.message}</ErrorText>
+      )}
     </div>
   );
 }

@@ -6,7 +6,7 @@ import ContestCard from "./contest-card";
 
 export default function Contest() {
   const { data, ref } = useInfiniteContests();
-  console.log(data);
+
   return (
     <div className={styles.contestWrapper}>
       {data?.pages.map((page, i) => (

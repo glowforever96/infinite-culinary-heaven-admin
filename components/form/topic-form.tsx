@@ -42,7 +42,6 @@ export default function TopicForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!topicNameRef.current?.value || !selectedFile) {
-      console.log("no");
       return;
     }
     mutate({

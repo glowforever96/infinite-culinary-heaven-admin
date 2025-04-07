@@ -1,8 +1,13 @@
 import Input from "@/components/input";
 import * as styles from "./step2.css";
 import useStep2State from "@/hooks/useStep2State";
+import ErrorText from "@/components/ui/error";
 
-export default function Step2() {
+export default function Step2({
+  errorState,
+}: {
+  errorState: { step: number; message: string } | null;
+}) {
   const { contestState, onChangeInput } = useStep2State();
 
   return (
@@ -34,6 +39,7 @@ export default function Step2() {
           />
         </div>
       </div>
+      {errorState && <ErrorText>{errorState.message}</ErrorText>}
     </div>
   );
 }

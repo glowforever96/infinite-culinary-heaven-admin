@@ -10,7 +10,33 @@ import { ChangeEvent, useState } from "react";
 const useContestForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [searchInput, setSearchInput] = useState("");
-  const { topicIngredientId } = useContestState();
+  const [error, setError] = useState<null | { step: number; message: string }>(
+    null
+  );
+  const { topicIngredientId, name, description } = useContestState();
+
+  const formValidations = [
+    {
+      step: 0,
+      condition: !topicIngredientId,
+      message: "재료를 선택해주세요!",
+    },
+    {
+      step: 1,
+      condition: !name.trim() && !description.trim(),
+      message: "대회 설명, 이름을 입력해주세요!",
+    },
+    {
+      step: 1,
+      condition: !name.trim(),
+      message: "대회 이름을 입력해주세요!",
+    },
+    {
+      step: 1,
+      condition: !description.trim(),
+      message: "대회 설명을 입력해주세요!",
+    },
+  ];
 
   const { data: allTopics } = useQuery<Topic[]>({
     queryFn: getAllTopics,
@@ -30,11 +56,11 @@ const useContestForm = () => {
   const renderCurrentStep = () => {
     switch (currentStep) {
       case 0:
-        return <Step1 />;
+        return <Step1 errorState={error} />;
       case 1:
-        return <Step2 />;
+        return <Step2 errorState={error} />;
       case 2:
-        return <Step3 />;
+        return <Step3 errorState={error} />;
       default:
         return null;
     }
@@ -42,7 +68,21 @@ const useContestForm = () => {
 
   const nextStep = () => {
     if (currentStep === 2) return;
+
+    const errorValidation = formValidations.find(
+      (v) => v.step === currentStep && v.condition
+    );
+
+    if (errorValidation) {
+      setError({
+        step: errorValidation.step,
+        message: errorValidation.message,
+      });
+      return;
+    }
+
     setCurrentStep((prev) => prev + 1);
+    setError(null);
   };
   const prevStep = () => {
     if (currentStep === 0) return;
