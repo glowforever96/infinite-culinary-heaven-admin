@@ -3,6 +3,7 @@ import Image from "next/image";
 import * as styles from "./step1.css";
 import useContestState from "@/store/useContestState";
 import SelectTopic from "./select-topic";
+import Input from "@/components/input";
 
 export default function Step1() {
   const { searchInput, onChangeInput, displayedTopics, selectedTopic } =
@@ -19,11 +20,12 @@ export default function Step1() {
           <p className={styles.paragraph}>현재 등록된 재료에요.</p>
         )}
         {!selectedTopic && (
-          <input
+          <Input
             type="text"
-            placeholder="검색어 입력..."
+            placeholder="검색어를 입력 해주세요."
             value={searchInput}
             onChange={onChangeInput}
+            fontSize="0.925rem"
           />
         )}
       </div>
@@ -48,8 +50,10 @@ export default function Step1() {
                 <div className={styles.topicName}>{name}</div>
               </div>
             ))}
-            {!displayedTopics?.length && <div>검색 결과가 없습니다.</div>}
           </div>
+        )}
+        {!displayedTopics?.length && (
+          <div className={styles.notFoundSearch}>검색 결과가 없습니다😥</div>
         )}
       </div>
     </div>

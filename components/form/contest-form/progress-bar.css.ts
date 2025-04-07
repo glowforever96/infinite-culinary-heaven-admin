@@ -7,6 +7,7 @@ export const progressBarContainer = style({
   backgroundColor: vars.colors.grey[200],
   borderRadius: 2,
   overflow: "hidden",
+  margin: "12px 0",
 });
 
 export const progressBarFill = style({

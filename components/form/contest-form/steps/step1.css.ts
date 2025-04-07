@@ -4,6 +4,7 @@ import { style } from "@vanilla-extract/css";
 export const step1Container = style({
   display: "flex",
   flexDirection: "column",
+  height: "100%",
 });
 
 export const titleInputContainer = style({
@@ -19,8 +20,7 @@ export const paragraph = style({
 });
 
 export const contentWrapper = style({
-  minHeight: "70dvh",
-  maxHeight: "70dvh",
+  maxHeight: "60dvh",
   overflowY: "scroll",
   marginTop: 10,
 });
@@ -66,4 +66,14 @@ export const resetButton = style({
   cursor: "pointer",
   transition: "background-color 0.2s ease-in-out",
   marginTop: 16,
+});
+
+export const notFoundSearch = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: "1.525rem",
+  fontWeight: 500,
+  marginTop: 24,
+  color: vars.colors.grey[600],
 });

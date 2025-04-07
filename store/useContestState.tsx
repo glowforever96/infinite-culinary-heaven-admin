@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface ContestState {
+export interface ContestState {
   name: string;
   description: string;
   startDate: string;
