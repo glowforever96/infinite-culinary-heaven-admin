@@ -1,6 +1,6 @@
-import Step1 from "@/components/form/contest-form/step1";
-import Step2 from "@/components/form/contest-form/step2";
-import Step3 from "@/components/form/contest-form/step3";
+import Step1 from "@/components/form/contest-form/steps/step1";
+import Step2 from "@/components/form/contest-form/steps/step2";
+import Step3 from "@/components/form/contest-form/steps/step3";
 import { getAllTopics } from "@/lib/getAllTopics";
 import { Topic } from "@/models/topic";
 import useContestState from "@/store/useContestState";

@@ -4,8 +4,8 @@ import "@/styles/globals.css";
 import Layout from "@/components/layout/layout";
 import Providers from "@/lib/ReactQueryProviders";
 
-const nanumsquare = localFont({
-  src: "../fonts/NanumSquareNeo-Variable.ttf",
+const pretendard = localFont({
+  src: "../fonts/PretendardVariable.woff2",
   display: "swap",
   weight: "45 920",
 });
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nanumsquare.className}>
+      <body className={pretendard.className}>
         <main>
           <Providers>
             <Layout>

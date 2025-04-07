@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import * as styles from "./topic-form.css";
 import useUploadTopic from "@/hooks/useUploadTopic";
+import Input from "../input";
 
 export default function TopicForm() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -57,7 +58,12 @@ export default function TopicForm() {
         <label htmlFor="topic" className={styles.label}>
           재료 이름
         </label>
-        <input id="topic" ref={topicNameRef} className={styles.input} />
+        <Input
+          type="text"
+          id="topic"
+          ref={topicNameRef}
+          placeholder="재료 이름을 입력해주세요."
+        />
       </div>
       <div className={styles.inputContainer}>
         <label className={styles.label}>이미지 등록</label>

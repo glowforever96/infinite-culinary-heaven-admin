@@ -2,6 +2,7 @@
 import loginAction from "@/actions/login";
 import { useActionState } from "react";
 import * as styles from "./login-form.css";
+import Input from "../input";
 
 export default function LoginForm() {
   const [state, formAction, isPending] = useActionState(loginAction, null);
@@ -12,10 +13,10 @@ export default function LoginForm() {
         <label htmlFor="id" className={styles.label}>
           아이디
         </label>
-        <input
+        <Input
+          type="text"
           name="id"
           id="id"
-          className={styles.input}
           placeholder="아이디를 입력해주세요."
           defaultValue={state?.prevId}
         />
@@ -24,10 +25,9 @@ export default function LoginForm() {
         <label htmlFor="password" className={styles.label}>
           비밀번호
         </label>
-        <input
+        <Input
           name="password"
           id="password"
-          className={styles.input}
           type="password"
           placeholder="비밀번호를 입력해주세요."
         />
