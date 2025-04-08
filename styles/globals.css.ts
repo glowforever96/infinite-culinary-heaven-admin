@@ -19,6 +19,10 @@ globalStyle("button", {
   cursor: "pointer",
 });
 
+globalStyle("input", {
+  fontFamily: "inherit",
+});
+
 export const vars = createGlobalTheme(":root", {
   colors: {
     background: {
@@ -54,4 +58,21 @@ export const vars = createGlobalTheme(":root", {
       500: "#ef4444",
     },
   },
+});
+
+globalStyle(".react-datepicker__day--selected", {
+  backgroundColor: "red !important",
+  color: "#ffffff",
+  borderRadius: "50%",
+});
+
+globalStyle(".react-datepicker__day--keyboard-selected", {
+  backgroundColor: "#4f46e5",
+  color: "#ffffff",
+  borderRadius: "50%",
+});
+
+globalStyle(".react-datepicker__day--outside-month", {
+  color: "#ccc !important",
+  cursor: "default !important",
 });

@@ -59,6 +59,14 @@ async function refreshAccessToken() {
     credentials: "include",
   });
 
+  console.log(refreshToken);
+
+  console.log("--- Refresh Token 요청 결과 ---");
+  console.log("status:", res.status);
+  console.log("headers:", res.headers);
+  const text = await res.text();
+  console.log("body:", text);
+
   if (!res.ok) {
     throw new Error(`토큰 재발급 실패${res.status}`);
   }
