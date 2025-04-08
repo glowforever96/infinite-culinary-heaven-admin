@@ -8,7 +8,7 @@ export const contestWrapper = style({
   width: "100%",
   gridTemplateColumns: "repeat(2, 1fr)",
   gap: 12,
-  paddingBottom: 74,
+  paddingBottom: 124,
   "@media": {
     "screen and (max-width: 768px)": {
       display: "flex",
