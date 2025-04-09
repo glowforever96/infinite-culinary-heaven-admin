@@ -76,3 +76,7 @@ globalStyle(".react-datepicker__day--outside-month", {
   color: "#ccc !important",
   cursor: "default !important",
 });
+
+globalStyle(".react-datepicker-wrapper", {
+  width: "100% !important",
+});

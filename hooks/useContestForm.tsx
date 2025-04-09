@@ -1,3 +1,4 @@
+import FinalStep from "@/components/form/contest-form/steps/final-step";
 import Step1 from "@/components/form/contest-form/steps/step1";
 import Step2 from "@/components/form/contest-form/steps/step2";
 import Step3 from "@/components/form/contest-form/steps/step3";
@@ -13,7 +14,8 @@ const useContestForm = () => {
   const [error, setError] = useState<null | { step: number; message: string }>(
     null
   );
-  const { topicIngredientId, name, description } = useContestState();
+  const { topicIngredientId, name, description, startDate, endDate } =
+    useContestState();
 
   const formValidations = [
     {
@@ -35,6 +37,17 @@ const useContestForm = () => {
       step: 1,
       condition: !description.trim(),
       message: "대회 설명을 입력해주세요!",
+    },
+    {
+      step: 2,
+      condition: !startDate || !endDate,
+      message: "필수 값이 입력되지 않았습니다!",
+    },
+    {
+      step: 2,
+      condition:
+        startDate && endDate && new Date(endDate) < new Date(startDate),
+      message: "종료 일시가 시작 일시보다 빠릅니다!",
     },
   ];
 
@@ -61,14 +74,14 @@ const useContestForm = () => {
         return <Step2 errorState={error} />;
       case 2:
         return <Step3 errorState={error} />;
+      case 3:
+        return <FinalStep setStep={setCurrentStep} />;
       default:
         return null;
     }
   };
 
   const nextStep = () => {
-    if (currentStep === 2) return;
-
     const errorValidation = formValidations.find(
       (v) => v.step === currentStep && v.condition
     );
@@ -85,8 +98,8 @@ const useContestForm = () => {
     setError(null);
   };
   const prevStep = () => {
-    if (currentStep === 0) return;
     setCurrentStep((prev) => prev - 1);
+    setError(null);
   };
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
