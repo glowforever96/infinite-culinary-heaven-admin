@@ -13,6 +13,7 @@ export const contestWrapper = style({
     "screen and (max-width: 768px)": {
       display: "flex",
       flexDirection: "column",
+      maxHeight: "45dvh",
       gap: 8,
     },
   },
