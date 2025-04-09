@@ -1,6 +1,6 @@
 import * as styles from "./progress-bar.css";
 
-const TOTAL_STEP = 3;
+const TOTAL_STEP = 4;
 
 export default function ProgressBar({ currentStep }: { currentStep: number }) {
   const progressPercentage = ((currentStep + 1) / TOTAL_STEP) * 100;
