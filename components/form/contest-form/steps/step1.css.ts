@@ -20,7 +20,7 @@ export const paragraph = style({
 });
 
 export const contentWrapper = style({
-  maxHeight: "60dvh",
+  maxHeight: "45dvh",
   overflowY: "scroll",
   marginTop: 10,
 });
