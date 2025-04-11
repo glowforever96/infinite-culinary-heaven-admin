@@ -65,7 +65,9 @@ export default function FinalStep({
           </div>
         </div>
       </div>
-      <button onClick={handleSubmit}>등록</button>
+      <button onClick={handleSubmit} className={styles.submitButton}>
+        등록
+      </button>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export const titleContainer = style({
 export const contentsContainer = style({
   display: "flex",
   flexDirection: "column",
-  gap: 24,
+  gap: 12,
   marginTop: 12,
 });
 
@@ -61,4 +61,17 @@ export const grayParagarph = style({
 export const name = style({
   color: vars.colors.grey[800],
   fontSize: "0.8rem",
+});
+
+export const submitButton = style({
+  width: "100%",
+  padding: "12px",
+  fontSize: "1.25rem",
+  fontWeight: 500,
+  color: "#fff",
+  backgroundColor: vars.colors.green[600],
+  border: "none",
+  borderRadius: 6,
+  cursor: "pointer",
+  marginTop: 24,
 });
