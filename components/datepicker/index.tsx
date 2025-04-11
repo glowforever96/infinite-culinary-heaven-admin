@@ -46,6 +46,7 @@ export default function Datepicker({
       </div>
       <input
         type="time"
+        title="시간을 선택해주세요."
         className={styles.timeInput}
         value={time}
         onChange={(e) => onTimeChange(e.target.value)}

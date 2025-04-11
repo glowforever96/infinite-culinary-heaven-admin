@@ -9,12 +9,16 @@ export async function fetchWithAuth(url: string, options: RequestInit) {
     Authorization: `Bearer ${accessToken}`,
   };
 
+  console.log(headers);
+
   const res = await fetch(url, {
     method: "POST",
     body: options.body,
     headers,
     credentials: "include",
   });
+
+  console.log(res);
 
   const data = await res.json();
 
