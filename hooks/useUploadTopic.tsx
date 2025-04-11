@@ -21,7 +21,7 @@ const useUploadTopic = () => {
       return res;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["topic"] });
+      queryClient.invalidateQueries({ queryKey: ["topics"] });
       console.log("ok");
       close();
     },

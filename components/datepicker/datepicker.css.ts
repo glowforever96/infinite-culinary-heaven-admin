@@ -16,7 +16,7 @@ export const datepicker = style({
   padding: "8px",
   borderRadius: "4px",
   cursor: "pointer",
-  width: "60%",
+  width: "50%",
   height: "inherit",
 });
 
@@ -35,6 +35,6 @@ export const timeInput = style({
   borderRadius: "4px",
   fontSize: "1rem",
   cursor: "pointer",
-  width: "35%",
+  width: "40%",
   height: "inherit",
 });
